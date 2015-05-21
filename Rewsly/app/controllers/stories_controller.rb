@@ -1,6 +1,6 @@
 class StoriesController < ApplicationController
     def index
-        @stories = Story.search params[:story]
+        @stories = Story.all
     end
    
    
