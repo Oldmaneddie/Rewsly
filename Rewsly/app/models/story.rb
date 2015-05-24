@@ -1,6 +1,6 @@
 class Story < ActiveRecord::Base
-    validates :title, presence: true #remember validates is just a method
-    validates :link, presence: true
+    validates :title, presence: true, length: { maximum:50 }
+    validates :link, presence: true, length: { maximum:250 }
     validates :upvotes, presence: true
-    validates :category, presence: true
+    validates :category, presence: true, length: { maximum:250 }
 end

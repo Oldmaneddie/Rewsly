@@ -5,7 +5,7 @@ class StoryTest < ActiveSupport::TestCase
   #   assert true
   # end
   def setup
-    @story = Story.new(title: "Example User", link: "user@example.com",upvotes: 2,category:"example")
+    @story = Story.new(title: "Example title", link: "http://www.link.com",upvotes: 2,category:"example")
   end
 
   test "should be valid" do
@@ -29,6 +29,23 @@ class StoryTest < ActiveSupport::TestCase
 
   test "category should be present" do
     @story.category = " "
+    assert_not @story.valid?
+  end
+  
+  test "title should not be too long" do
+    @story.title = "a" * 51
+    assert_not @story.valid?
+  end
+  
+  test "link should not be too long" do
+    @story.link = "a" * 255
+    assert_not @story.valid?
+  end
+  
+ 
+  
+  test "category should not be too long " do
+    @story.category = "a" * 255
     assert_not @story.valid?
   end
   
