@@ -10,17 +10,17 @@ class StoriesController < ApplicationController
     end
    
    
-    def new #creating a new entry story form
+    def new 
         @stories = Story.new 
     end
     
-    def create #POST saving new story form 
+    def create 
     
-        safe_story_params = params.require(:story).permit(:title,:link,:upvote,:category) #created safe params
-        @stories = Story.new safe_story_params #create a instance variable creation of the Story Object so we can use it! 
-        @stories.save #Question? couldn't just solve this with a Story.create? 
+        safe_story_params = params.require(:story).permit(:title,:link,:upvote,:category) 
+        @stories = Story.new safe_story_params  
+        @stories.save 
         
-        redirect_to @stories #magick! 
+        redirect_to @stories 
     end
     
     def show
