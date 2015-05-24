@@ -33,3 +33,5 @@ class StoriesController < ApplicationController
 
 
 end 
+
+#Law of Demeter? keeping methods as seperate and deconsturcted as possible?
