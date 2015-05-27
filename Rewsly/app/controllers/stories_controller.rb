@@ -1,17 +1,12 @@
 class StoriesController < ApplicationController
     def index #front page
+        
         @stories = Story.all
-        # params[:title] ? Story.find_by_title(params[:title]) : Story.all
-        
-        # unless params[:title]
-        #   redirect_to story_path
-        
-        # end
     end
    
    
     def new 
-        #authenticate_user!
+        authenticate_user!
         @stories = Story.new 
     end
     
@@ -24,13 +19,15 @@ class StoriesController < ApplicationController
         redirect_to @stories 
     end
     
+    def search
+        @stories = Story.find_by title: params[:title]
+    end
+    
     def show
         @stories = Story.find params[:id]
     end
     
-    def search
-        
-    end
+    
 
 
 end 
