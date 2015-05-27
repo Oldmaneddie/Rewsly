@@ -1,6 +1,6 @@
 <h2>Enter a new Story</h2>
 
-    <%= form_for(@stories) do |f| %>
+    <%= form_for @stories,url:{ action: "create" } do |f| %>
       <%= f.label :title %>
       <%= f.text_field :title %></br>
 

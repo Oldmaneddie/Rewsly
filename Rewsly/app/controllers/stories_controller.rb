@@ -16,7 +16,7 @@ class StoriesController < ApplicationController
     
     def create 
     
-        safe_story_params = params.require(:story).permit(:title,:link,:upvote,:category) 
+        safe_story_params = params.require(:story).permit(:title,:link,:upvotes,:category) 
         @stories = Story.new safe_story_params  
         @stories.save 
         
