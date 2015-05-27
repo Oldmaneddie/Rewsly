@@ -11,6 +11,7 @@ class StoriesController < ApplicationController
    
    
     def new 
+        authenticate_user!
         @stories = Story.new 
     end
     
